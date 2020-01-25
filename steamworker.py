@@ -124,26 +124,27 @@ def steamworker(functionsList):
 def main():
     global killfunc
     numformat = True
+    print("\nMake sure you are in the Steamworks starting screen BEFORE you run the script!")
+    print("|| script will only run while MHW is the active window ||\n")
+    print("-----------------------------------")
 
-    print("-----------------------------")
     while numformat:
         try:
-            # 0.0166 would be 1min of running time
             killfunc = float(input("Enter max active running time in h: "))
             numformat = False
         except ValueError:
             numformat = True
-    print("-----------------------------")
+    print("-----------------------------------")
+    print("\nRunning ...\n")
 
     funclist = [pressa, pressw, pressd]
-    #global active
     cycle = 0
     while cycle < (killfunc * 9000):
         active = win32gui.GetWindowText(win32gui.GetForegroundWindow())
         while(active[0:7] == "MONSTER"):
             steamworker(funclist)
             cycle = cycle + 1
-            print(cycle)
+            #print(cycle)
             break
         # print(cycle)
 
