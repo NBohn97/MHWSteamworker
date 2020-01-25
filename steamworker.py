@@ -141,10 +141,10 @@ def main():
     cycle = 0
     while cycle < (killfunc * 9000):
         active = win32gui.GetWindowText(win32gui.GetForegroundWindow())
-        while(active[0:7] == "MONSTER"):
+        while active[0:7] == "MONSTER":
             steamworker(funclist)
             cycle = cycle + 1
-            #print(cycle)
+            # print(cycle)
             break
         # print(cycle)
 
